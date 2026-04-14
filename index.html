@@ -1,170 +1,461 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>موقعي الشخصي</title>
+  <title>Free Programme Android and Win</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f172a, #111827, #1e293b);
-      color: white;
-      line-height: 1.7;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
     }
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: auto;
+
+    body{
+      font-family:Arial,sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(255,0,0,0.14), transparent 20%),
+        radial-gradient(circle at bottom left, rgba(120,0,0,0.20), transparent 24%),
+        linear-gradient(135deg,#000000,#0b0b0b,#180000,#000000);
+      color:#f5f5f5;
+      line-height:1.8;
     }
-    header {
-      padding: 70px 0 40px;
-      text-align: center;
+
+    .container{
+      width:90%;
+      max-width:1150px;
+      margin:auto;
     }
-    header h1 {
-      font-size: 2.3rem;
-      margin-bottom: 15px;
-      color: #38bdf8;
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(0,0,0,0.88);
+      border-bottom:1px solid rgba(255,0,0,0.22);
+      backdrop-filter:blur(8px);
     }
-    header p {
-      color: #cbd5e1;
-      max-width: 700px;
-      margin: auto;
-      font-size: 1.05rem;
+
+    .nav-wrap{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 0;
+      gap:12px;
+      flex-wrap:wrap;
     }
-    .btns {
-      margin-top: 25px;
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
+
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:12px;
     }
-    .btn {
-      display: inline-block;
-      padding: 12px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
+
+    .logo-icon{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      background:linear-gradient(135deg,#ff1a1a,#5a0000,#000000);
+      border:1px solid rgba(255,0,0,0.35);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 0 18px rgba(255,0,0,0.18);
+      position:relative;
+      overflow:hidden;
     }
-    .btn-primary {
-      background: #38bdf8;
-      color: #0f172a;
+
+    .logo-icon::before{
+      content:"K";
+      font-size:1.4rem;
+      font-weight:bold;
+      color:#fff;
+      text-shadow:0 0 12px rgba(255,0,0,0.45);
     }
-    .btn-primary:hover {
-      background: #0ea5e9;
+
+    .logo-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.1;
     }
-    .btn-secondary {
-      border: 1px solid #38bdf8;
-      color: white;
+
+    .logo-text strong{
+      color:#ff2a2a;
+      letter-spacing:2px;
+      font-size:1rem;
     }
-    .btn-secondary:hover {
-      background: rgba(56, 189, 248, 0.12);
+
+    .logo-text span{
+      color:#9ca3af;
+      font-size:0.76rem;
+      letter-spacing:1px;
+      text-transform:uppercase;
     }
-    section {
-      padding: 50px 0;
+
+    .links{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
     }
-    .section-title {
-      font-size: 1.7rem;
-      margin-bottom: 25px;
-      color: #7dd3fc;
-      text-align: center;
+
+    .links a{
+      text-decoration:none;
+      color:#d1d5db;
+      transition:0.3s;
+      font-size:0.95rem;
     }
-    .about, .contact {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 25px;
-      border-radius: 18px;
-      backdrop-filter: blur(8px);
+
+    .links a:hover{
+      color:#ff1a1a;
+      text-shadow:0 0 8px rgba(255,0,0,0.55);
     }
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+
+    header{
+      min-height:90vh;
+      display:flex;
+      align-items:center;
+      border-bottom:1px solid rgba(255,0,0,0.10);
     }
-    .card {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 20px;
-      transition: transform 0.3s, border-color 0.3s;
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.15fr 0.85fr;
+      gap:28px;
+      align-items:center;
+      padding:70px 0;
     }
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: #38bdf8;
+
+    .hero h1{
+      font-size:clamp(2.2rem,6vw,5rem);
+      line-height:1.08;
+      margin-bottom:18px;
+      color:#ffffff;
+      text-transform:uppercase;
+      text-shadow:0 0 18px rgba(255,0,0,0.22);
     }
-    .card h3 {
-      color: #38bdf8;
-      margin-bottom: 10px;
+
+    .hero h1 span{
+      color:#ff1a1a;
     }
-    .card p {
-      color: #dbeafe;
-      font-size: 0.95rem;
-      margin-bottom: 15px;
+
+    .hero p{
+      color:#d1d5db;
+      font-size:1.06rem;
+      max-width:650px;
+      margin-bottom:24px;
     }
-    .card a {
-      color: #7dd3fc;
-      text-decoration: none;
-      font-weight: bold;
+
+    .hero-buttons{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
     }
-    footer {
-      text-align: center;
-      padding: 25px 0 40px;
-      color: #94a3b8;
-      font-size: 0.95rem;
+
+    .btn{
+      display:inline-block;
+      padding:13px 22px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
+      border:1px solid transparent;
     }
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.8rem; }
-      .section-title { font-size: 1.4rem; }
+
+    .btn-main{
+      background:#ff1a1a;
+      color:#000;
+      box-shadow:0 0 18px rgba(255,0,0,0.22);
+    }
+
+    .btn-main:hover{
+      background:#ff3535;
+      transform:translateY(-2px);
+    }
+
+    .btn-alt{
+      border-color:rgba(255,0,0,0.35);
+      color:#fff;
+      background:rgba(255,0,0,0.05);
+    }
+
+    .btn-alt:hover{
+      background:rgba(255,0,0,0.14);
+      border-color:#ff1a1a;
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,0,0,0.08), rgba(255,255,255,0.02));
+      border:1px solid rgba(255,0,0,0.18);
+      border-radius:22px;
+      padding:24px;
+      box-shadow:0 10px 35px rgba(0,0,0,0.45);
+    }
+
+    .terminal{
+      background:#050505;
+      border:1px solid rgba(255,0,0,0.18);
+      border-radius:16px;
+      padding:18px;
+      color:#ff4d4d;
+      font-family:monospace;
+      font-size:0.95rem;
+      line-height:1.9;
+    }
+
+    section{
+      padding:75px 0;
+    }
+
+    .section-title{
+      font-size:2rem;
+      text-align:center;
+      margin-bottom:12px;
+      color:#ff1a1a;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+
+    .section-sub{
+      text-align:center;
+      max-width:700px;
+      margin:0 auto 35px;
+      color:#cbd5e1;
+    }
+
+    .info-box{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,0,0,0.14);
+      border-radius:22px;
+      padding:28px;
+      text-align:center;
+      box-shadow:0 8px 30px rgba(0,0,0,0.35);
+    }
+
+    .info-box p{
+      font-size:1.1rem;
+      color:#f3f4f6;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,0,0,0.03));
+      border:1px solid rgba(255,0,0,0.16);
+      border-radius:20px;
+      overflow:hidden;
+      transition:0.3s;
+      box-shadow:0 8px 25px rgba(0,0,0,0.35);
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      border-color:#ff1a1a;
+      box-shadow:0 12px 28px rgba(255,0,0,0.12);
+    }
+
+    .thumb{
+      height:160px;
+      background:linear-gradient(135deg,#1a0000,#8b0000,#000000);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:1.2rem;
+      font-weight:bold;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
+
+    .card-body{
+      padding:18px;
+    }
+
+    .card-body h3{
+      color:#ff2e2e;
+      margin-bottom:10px;
+    }
+
+    .card-body p{
+      color:#d1d5db;
+      font-size:0.95rem;
+      margin-bottom:15px;
+    }
+
+    .card-links{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .card-links a{
+      text-decoration:none;
+      color:#fff;
+      background:rgba(255,0,0,0.08);
+      border:1px solid rgba(255,0,0,0.25);
+      padding:9px 14px;
+      border-radius:12px;
+      transition:0.3s;
+      font-size:0.9rem;
+    }
+
+    .card-links a:hover{
+      background:rgba(255,0,0,0.18);
+      border-color:#ff1a1a;
+    }
+
+    .contact-box{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,0,0,0.18);
+      border-radius:22px;
+      padding:30px;
+      text-align:center;
+      box-shadow:0 8px 30px rgba(0,0,0,0.35);
+    }
+
+    .email{
+      display:inline-block;
+      margin-top:16px;
+      color:#ff4d4d;
+      text-decoration:none;
+      font-weight:bold;
+      font-size:1.05rem;
+      word-break:break-word;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px 0 45px;
+      color:#9ca3af;
+      border-top:1px solid rgba(255,0,0,0.10);
+    }
+
+    @media (max-width: 850px){
+      .hero{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 600px){
+      .hero-buttons,
+      .card-links{
+        flex-direction:column;
+      }
+
+      .btn,
+      .card-links a{
+        width:100%;
+        text-align:center;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="container">
-      <h1>مرحبًا، أنا صانع ألعاب ومشاريع</h1>
-      <p>
-        هذه صفحتي الشخصية على GitHub Pages. أضع هنا مشاريعي، ألعابي، وروابط التحميل أو اللعب المباشر.
-      </p>
-      <div class="btns">
-        <a href="#projects" class="btn btn-primary">شاهد مشاريعي</a>
-        <a href="#contact" class="btn btn-secondary">تواصل معي</a>
+  <nav>
+    <div class="container nav-wrap">
+      <div class="logo-wrap">
+        <div class="logo-icon"></div>
+        <div class="logo-text">
+          <strong>KIKONG-YT</strong>
+          <span>Free Programme Hub</span>
+        </div>
+      </div>
+
+      <div class="links">
+        <a href="#home">Home</a>
+        <a href="#free">Free</a>
+        <a href="#programmes">Programmes</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="home">
+    <div class="container hero">
+      <div>
+        <h1><span>Free Programme</span><br>Android and Win</h1>
+        <p>
+          Everything you need for free.
+        </p>
+        <div class="hero-buttons">
+          <a href="#programmes" class="btn btn-main">Start Now</a>
+          <a href="#contact" class="btn btn-alt">Contact</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="terminal">
+          > ACCESS GRANTED<br>
+          > SYSTEM: KIKONG-YT<br>
+          > MODE: FREE TOOLS<br>
+          > TARGET: ANDROID / WINDOWS<br>
+          > STATUS: ONLINE
+        </div>
       </div>
     </div>
   </header>
 
-  <section id="about">
+  <section id="free">
     <div class="container">
-      <h2 class="section-title">من أنا</h2>
-      <div class="about">
+      <h2 class="section-title">Everything You Need For Free</h2>
+      <p class="section-sub">
+        Programmes, tools, links, and everything you want to share in one strong dark page.
+      </p>
+      <div class="info-box">
         <p>
-          أنا مطور ومهتم بصناعة الألعاب والتجارب الرقمية. أستخدم هذه الصفحة لعرض أعمالي
-          ومشاركة المشاريع التي أعمل عليها، مع تحديثات وروابط التحميل.
+          This page is made to share free Android and Windows content in a clean and powerful style.
         </p>
       </div>
     </div>
   </section>
 
-  <section id="projects">
+  <section id="programmes">
     <div class="container">
-      <h2 class="section-title">مشاريعي</h2>
-      <div class="projects">
+      <h2 class="section-title">Programmes</h2>
+      <p class="section-sub">
+        Edit the cards below and replace them with your own files and download links.
+      </p>
+
+      <div class="cards">
         <div class="card">
-          <h3>لعبة 1</h3>
-          <p>اكتب هنا وصفًا قصيرًا للعبة، نوعها، وفكرتها الأساسية.</p>
-          <a href="#">رابط التحميل</a>
+          <div class="thumb">ANDROID</div>
+          <div class="card-body">
+            <h3>Android Tool 1</h3>
+            <p>Add a short description here for your Android app, tool, or file.</p>
+            <div class="card-links">
+              <a href="#">Download</a>
+              <a href="#">Details</a>
+            </div>
+          </div>
         </div>
 
         <div class="card">
-          <h3>لعبة 2</h3>
-          <p>يمكنك وضع لعبة ثانية هنا مع وصف مختصر وصورة لاحقًا.</p>
-          <a href="#">رابط التحميل</a>
+          <div class="thumb">WINDOWS</div>
+          <div class="card-body">
+            <h3>Windows Tool 1</h3>
+            <p>Add a short description here for your Windows programme or package.</p>
+            <div class="card-links">
+              <a href="#">Download</a>
+              <a href="#">Details</a>
+            </div>
+          </div>
         </div>
 
         <div class="card">
-          <h3>مشروع 3</h3>
-          <p>ليس شرطًا أن تكون كلها ألعاب، يمكنك عرض أي مشروع أو فكرة أو أداة.</p>
-          <a href="#">عرض المشروع</a>
+          <div class="thumb">TOOLS</div>
+          <div class="card-body">
+            <h3>Extra File</h3>
+            <p>You can place any free tool, file, or direct link in this section.</p>
+            <div class="card-links">
+              <a href="#">Open</a>
+              <a href="#">Link</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -172,18 +463,17 @@
 
   <section id="contact">
     <div class="container">
-      <h2 class="section-title">تواصل معي</h2>
-      <div class="contact">
-        <p>GitHub: ضع رابط حسابك هنا</p>
-        <p>Email: ضع بريدك هنا</p>
-        <p>itch.io: ضع رابط ألعابك هنا</p>
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-box">
+        <p>For contact:</p>
+        <a class="email" href="mailto:Anonymousmiro@gmail.com">Anonymousmiro@gmail.com</a>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <p>© 2026 - جميع الحقوق محفوظة</p>
+      <p>© 2026 KIKONG-YT</p>
     </div>
   </footer>
 
