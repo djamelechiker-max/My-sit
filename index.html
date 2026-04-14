@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>موقعي الشخصي</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #111827, #1e293b);
+      color: white;
+      line-height: 1.7;
+    }
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+    header {
+      padding: 70px 0 40px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.3rem;
+      margin-bottom: 15px;
+      color: #38bdf8;
+    }
+    header p {
+      color: #cbd5e1;
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.05rem;
+    }
+    .btns {
+      margin-top: 25px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn-primary {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+    .btn-primary:hover {
+      background: #0ea5e9;
+    }
+    .btn-secondary {
+      border: 1px solid #38bdf8;
+      color: white;
+    }
+    .btn-secondary:hover {
+      background: rgba(56, 189, 248, 0.12);
+    }
+    section {
+      padding: 50px 0;
+    }
+    .section-title {
+      font-size: 1.7rem;
+      margin-bottom: 25px;
+      color: #7dd3fc;
+      text-align: center;
+    }
+    .about, .contact {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 18px;
+      backdrop-filter: blur(8px);
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 20px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #38bdf8;
+    }
+    .card h3 {
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+    .card p {
+      color: #dbeafe;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+    .card a {
+      color: #7dd3fc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 25px 0 40px;
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+      .section-title { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>مرحبًا، أنا صانع ألعاب ومشاريع</h1>
+      <p>
+        هذه صفحتي الشخصية على GitHub Pages. أضع هنا مشاريعي، ألعابي، وروابط التحميل أو اللعب المباشر.
+      </p>
+      <div class="btns">
+        <a href="#projects" class="btn btn-primary">شاهد مشاريعي</a>
+        <a href="#contact" class="btn btn-secondary">تواصل معي</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">من أنا</h2>
+      <div class="about">
+        <p>
+          أنا مطور ومهتم بصناعة الألعاب والتجارب الرقمية. أستخدم هذه الصفحة لعرض أعمالي
+          ومشاركة المشاريع التي أعمل عليها، مع تحديثات وروابط التحميل.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">مشاريعي</h2>
+      <div class="projects">
+        <div class="card">
+          <h3>لعبة 1</h3>
+          <p>اكتب هنا وصفًا قصيرًا للعبة، نوعها، وفكرتها الأساسية.</p>
+          <a href="#">رابط التحميل</a>
+        </div>
+
+        <div class="card">
+          <h3>لعبة 2</h3>
+          <p>يمكنك وضع لعبة ثانية هنا مع وصف مختصر وصورة لاحقًا.</p>
+          <a href="#">رابط التحميل</a>
+        </div>
+
+        <div class="card">
+          <h3>مشروع 3</h3>
+          <p>ليس شرطًا أن تكون كلها ألعاب، يمكنك عرض أي مشروع أو فكرة أو أداة.</p>
+          <a href="#">عرض المشروع</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">تواصل معي</h2>
+      <div class="contact">
+        <p>GitHub: ضع رابط حسابك هنا</p>
+        <p>Email: ضع بريدك هنا</p>
+        <p>itch.io: ضع رابط ألعابك هنا</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 - جميع الحقوق محفوظة</p>
+    </div>
+  </footer>
+
+</body>
+</html>
